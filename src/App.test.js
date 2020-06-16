@@ -10,8 +10,4 @@ test('App.js renders and displays show title', () => {
 
     expect(waitMsg).toBeInTheDocument();
 
-    //const title = findByText(/Stranger Things/i); //findBy is async
-
-    //expect(title).toBeInTheDocument();
-
 })

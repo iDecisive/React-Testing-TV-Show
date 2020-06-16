@@ -70,15 +70,41 @@ test('Renders Episodes component with data', () => {
         }
     ]
 
-    const { rerender, getByText, getAllByText, findByText } = render(<Episodes episodes={[]} />);
+    const { rerender, getByText, getAllByText } = render(<Episodes episodes={[]} />);
 
     rerender(<Episodes episodes={episodes} />)
+
+    
+
+    expect(getByText(/Season 1, Episode 1/i)).toBeInTheDocument();
 
     expect(getByText(/Chapter One: The Vanishing of Will Byers/i)).toBeInTheDocument();
 
     expect(
+        getByText(/A young boy mysteriously disappears, and his panicked mother demands that the police find him. Meanwhile, the boy\'s friends conduct their own search, and meet a mysterious girl in the forest./i))
+    .toBeInTheDocument();
+
+
+
+    expect(getByText(/Season 1, Episode 2/i)).toBeInTheDocument();
+
+    expect(getByText(/Chapter Two: The Weirdo on Maple Street/i)).toBeInTheDocument();
+
+    expect(
         getByText(/While the search for the missing Will continues, Joyce tells Jim about a call she apparently received from her son. Meanwhile, Jane warns Mike that there are bad people after her, and he realizes that she knows what happened to Will./i))
     .toBeInTheDocument(); 
+
+
+
+    expect(getByText(/Season 1, Episode 3/i)).toBeInTheDocument();
+
+    expect(getByText(/Chapter Three: Holly, Jolly/i)).toBeInTheDocument();
+
+    expect(
+        getByText(/While Nancy looks for a missing Barbara and realizes that Jonathan may have been the last person to see her, Mike and his friends go out with Jane to find the missing Will. Meanwhile, Jim tracks Will to the lab./i))
+    .toBeInTheDocument();
+
+    
 
     expect(getAllByText('60 minutes')[0]).toBeInTheDocument();
 
