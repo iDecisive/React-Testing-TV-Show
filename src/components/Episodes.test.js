@@ -104,7 +104,7 @@ test('Renders Episodes component with data', () => {
         getByText(/While Nancy looks for a missing Barbara and realizes that Jonathan may have been the last person to see her, Mike and his friends go out with Jane to find the missing Will. Meanwhile, Jim tracks Will to the lab./i))
     .toBeInTheDocument();
 
-    
+
 
     expect(getAllByText('60 minutes')[0]).toBeInTheDocument();
 
