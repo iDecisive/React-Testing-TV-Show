@@ -2,9 +2,9 @@ import React from 'react'
 import {render, waitFor} from '@testing-library/react';
 import App from './App';
 
-//import fetchShow from './api/fetchShow'; //
+import fetchShow from './api/fetchShow'; //
 
-//jest.mock('./api/fetchShow'); //
+jest.mock('./api/fetchShow'); //
 
 let apiData = {
     id: 2993,
@@ -607,14 +607,19 @@ let apiData = {
 
 test('App.js renders and displays show title', async () => { 
 
-    //fetchShow.mockResolvedValueOnce(apiData) //
+    fetchShow.mockResolvedValueOnce(apiData) //
 
-    const { rerender, getByText, findByText } = render(<App />);
+    const { rerender, getByText } = render(<App />);
 
-    const waitMsg = getByText(/Fetching data.../i);
+    expect(getByText(/Fetching data.../i)).toBeInTheDocument();
 
-    expect(waitMsg).toBeInTheDocument();
+    await waitFor(() => {
 
-    //await expect(getByText(/Stranger Things/i)).toBeInTheDocument(); //
+        getByText(/love letter/i) //Why is it unable to find?
+
+    });
+    
+
+
 
 })
